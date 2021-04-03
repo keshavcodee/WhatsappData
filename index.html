@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <title>Document</title>
+    <title>keshavcodex</title>
+    <meta name="description" content="Coding is a something in which you will always be a learner">
 </head>
 <body>
     <header class="text-gray-600 body-font">
@@ -78,7 +79,7 @@
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">You can contact me if You want to help me or if you want some help from me.</p>
           </div>
           <div class="lg:w-1/2 md:w-2/3 mx-auto">
-            <div class="flex flex-wrap -m-2">
+            <form class="flex flex-wrap -m-2" method="POST" name="contact-form">
               <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
@@ -127,9 +128,20 @@
                   </a>
                 </span>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </section>
+      <script>
+            const scriptURL = "https://script.google.com/macros/s/AKfycbxLkGSQf1aFain7YbDYw0coe6bMCvmXIidzQP_1cZZWIgHxZYbdRL4U1zJZwu-lGyos/exec"
+            const form = document.forms['contact-form']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks... I will contact you later :) "))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
 </body>
 </html>
