@@ -137,6 +137,7 @@
             const form = document.forms['contact-form']
           
             form.addEventListener('submit', e => {
+                alert("hi");
               e.preventDefault()
               fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => alert("Thanks... I will contact you later :) "))
